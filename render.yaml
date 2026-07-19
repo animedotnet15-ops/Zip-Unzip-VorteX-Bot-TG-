@@ -1,0 +1,26 @@
+services:
+  - type: worker
+    name: zipvortex-hub-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: BOT_USERNAME
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/zipbot.db
+      - key: WORK_DIR
+        value: /var/data/zip_workdir
+      - key: LOCAL_BOT_API_BASE
+        value: ""
+      - key: MAX_UPLOAD_MB
+        value: "2000"
+    disk:
+      name: zipvortex-data
+      mountPath: /var/data
+      sizeGB: 1
