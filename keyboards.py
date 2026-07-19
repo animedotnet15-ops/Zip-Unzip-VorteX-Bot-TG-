@@ -19,6 +19,10 @@ def welcome_settings_keyboard() -> InlineKeyboardMarkup:
     rows = [
         [InlineKeyboardButton(text="🖼️ Set Welcome Photo", callback_data="set:welcomephoto")],
         [InlineKeyboardButton(text="✍️ Set Welcome Text", callback_data="set:welcometext")],
+        [InlineKeyboardButton(text="👑 Set Owner Username", callback_data="set:ownerusername")],
+        [InlineKeyboardButton(text="🥷 Set Admin Username", callback_data="set:adminusername")],
+        [InlineKeyboardButton(text="🤝 Set Support Link", callback_data="set:supportlink")],
+        [InlineKeyboardButton(text="🌐 Set Website Link", callback_data="set:websitelink")],
         [InlineKeyboardButton(text="⬅️ Back", callback_data="set:main")],
     ]
     return InlineKeyboardMarkup(inline_keyboard=rows)
@@ -85,3 +89,4 @@ def approval_request_keyboard(user_id: int) -> InlineKeyboardMarkup:
         InlineKeyboardButton(text="❌ Reject", callback_data=f"rej:{user_id}"),
     ]]
     return InlineKeyboardMarkup(inline_keyboard=rows)
+    
